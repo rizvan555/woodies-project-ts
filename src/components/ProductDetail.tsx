@@ -56,9 +56,39 @@ const ProductDetailContainer = styled.div`
 `;
 
 const ProductDetail = () => {
+  const { title } = useParams();
+
+  const getImageForTitle = (title: any) => {
+    if (title === "Jenson") {
+      return Group19;
+    } else if (title === "Deon") {
+      return Group18;
+    } else if (title === "Krisha") {
+      return Group20;
+    }
+  };
+
+  const image = getImageForTitle(title);
+
   return (
     <>
       <Header />
+      <InfoDetails>
+        <img src={logo} alt="logo" />
+        <h2>{title}</h2>
+        <p></p>
+        <h1>PRODUCTS</h1>
+      </InfoDetails>
+
+      <ProductDetailContainer>
+        <img src={image} alt={title} />
+        <p>
+          Jenson demonstrates what designer Tim Fenby does best. Clean lines,
+          subtle curves and an oak finish nail this season's trends. Boomerang
+          legs add serious style points – not that this dining table needs it.
+          Nordic retro? You got it.
+        </p>
+      </ProductDetailContainer>
     </>
   );
 };
